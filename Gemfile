@@ -19,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+#Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
 # Use CoffeeScript for .coffee assets and views
