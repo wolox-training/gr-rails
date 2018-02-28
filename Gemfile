@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.52.1'
 
+#Simple, secure token based authentication for Rails.
+gem 'devise_token_auth'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
