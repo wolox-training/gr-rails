@@ -27,6 +27,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+# Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
+gem 'rubocop', '~> 0.52.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
