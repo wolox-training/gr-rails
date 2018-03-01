@@ -45,7 +45,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   #factory_bot supports multiple factories for the same class
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', "~> 4.0"
   #rspec-rails is a testing framework for Rails 3.x, 4.x and 5.0.
   gem 'rspec-rails', '~> 3.7'
 end

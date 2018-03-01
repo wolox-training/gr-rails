@@ -1,8 +1,9 @@
+require 'faker'
 FactoryBot.define do
   factory :rent do
-    user_id nil
-    book_id nil
-    from ""
-    to ""
+    user
+    book
+    from    Faker::Date.backward(10)
+    to      Faker::Date.forward(10)
   end
 end
