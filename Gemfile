@@ -18,6 +18,8 @@ gem 'puma', '~> 3.7'
 #Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
+
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,10 +28,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-
+# This gem generates fake data.
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.52.1'
+
+#factory_bot is a fixtures replacement with a straightforward definition syntax
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -40,6 +44,10 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  #factory_bot supports multiple factories for the same class
+  gem 'factory_bot_rails'
+  #rspec-rails is a testing framework for Rails 3.x, 4.x and 5.0.
+  gem 'rspec-rails', '~> 3.7'
 end
 
 group :development do
@@ -51,5 +59,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+group :test do
+  #DB Cleaner is a set of strategies for cleaning your database in Ruby.
+  gem 'database_cleaner'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
