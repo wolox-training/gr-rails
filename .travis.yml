@@ -23,10 +23,10 @@ before_script:
   - psql -c "CREATE DATABASE \"wbooks_test\" ENCODING 'utf8';" -U postgres
   - bundle exec rake db:migrate
   
-script:
-  - bundle exec rspec spec -fd
-  - bundle exec rubocop app spec -R --format simple
-  - bundle exec scss-lint app/assets/stylesheets/
+#script:
+#  - bundle exec rspec spec -fd
+#  - bundle exec rubocop app spec -R --format simple
+#  - bundle exec scss-lint app/assets/stylesheets/
 
 #notifications:
 #email:
