@@ -1,8 +1,8 @@
-require 'database_cleaner'
 require 'faker'
-describe Book do
-  subject(:book) do
-    build(:book)
+describe Rent do
+  include FactoryBot::Syntax::Methods
+  subject(:rent) do
+    build(:rent)
   end
 
   it do
@@ -10,16 +10,16 @@ describe Book do
   end
 
   describe '#create' do
-    context 'when genre is nil' do
+    context 'when from is nil' do
       it do
-        book.genre = nil
+        rent.from = nil
         is_expected.to be_invalid
       end
     end
 
-    context 'when author is nil' do
+    context 'when to is nil' do
       it do
-        book.author = nil
+        rent.to = nil
         is_expected.to be_invalid
       end
     end
