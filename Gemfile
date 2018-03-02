@@ -34,6 +34,9 @@ gem 'rubocop', '~> 0.52.1'
 #ActiveModelSerializers brings convention over configuration to your JSON generation.
 gem 'active_model_serializers', '~> 0.10.0'
 
+#Wor::Paginate is a gem for Rails that simplifies pagination
+gem 'wor-paginate'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

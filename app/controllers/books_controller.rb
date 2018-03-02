@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
+  include Wor::Paginate
+
   def index
       @books = Book.all
-      render json: @books
+      render_paginated @books
   end
   
   def show
