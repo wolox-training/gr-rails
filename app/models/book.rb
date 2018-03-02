@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-    validates_presence_of :genre
-    validates_presence_of :author
+  has_many :rents, dependent: :destroy
+  validates :genre, :author, :image, :title, :publisher, :year, presence: true
 end
