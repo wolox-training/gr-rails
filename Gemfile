@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.52.1'
 
+#ActiveModelSerializers brings convention over configuration to your JSON generation.
+gem 'active_model_serializers', '~> 0.10.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
