@@ -1,6 +1,5 @@
 require 'faker'
 describe Rent do
-  DatabaseCleaner.strategy = :truncation
   include FactoryBot::Syntax::Methods
   subject(:rent) do
     build(:rent)
@@ -25,5 +24,4 @@ describe Rent do
       end
     end
   end
-  DatabaseCleaner.clean
 end

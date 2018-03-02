@@ -1,7 +1,6 @@
 require 'database_cleaner'
 require 'faker'
 describe Book do
-  DatabaseCleaner.strategy = :truncation
 
   subject(:book) do
     build(:book)
@@ -26,5 +25,4 @@ describe Book do
       end
     end
   end
-  DatabaseCleaner.clean
 end
