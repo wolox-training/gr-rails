@@ -1,18 +1,11 @@
 require 'database_cleaner'
 require 'faker'
 describe Book do
-  #DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.strategy = :truncation
   
   subject(:book) do
-    Book.new(genre: genre, author: author, image: image, title: title,
-             publisher: publisher, year: year)
+      build(:book)
   end
-  let(:genre)     { Faker::Book.genre                }
-  let(:author)    { Faker::Book.author               }
-  let(:image)     { Faker::Food.description          }
-  let(:title)     { Faker::Book.title                }
-  let(:publisher) { Faker::Book.publisher            }
-  let(:year)      { Faker::Number.between(1900,2018) }
 
   it do
     is_expected.to be_valid
@@ -20,18 +13,18 @@ describe Book do
 
   describe '#create' do
     context 'when genre is nil' do
-      let(:genre) { nil }
       it do
+        book.genre = nil
         is_expected.to be_invalid
       end
     end
     
     context 'when author is nil' do
-      let(:author) { nil }
       it do
+        book.author = nil
         is_expected.to be_invalid
       end
     end
   end
-  #DatabaseCleaner.clean
+  DatabaseCleaner.clean
 end
