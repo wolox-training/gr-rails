@@ -2,9 +2,9 @@ require 'database_cleaner'
 require 'faker'
 describe Book do
   DatabaseCleaner.strategy = :truncation
-  
+
   subject(:book) do
-      build(:book)
+    build(:book)
   end
 
   it do
@@ -18,7 +18,7 @@ describe Book do
         is_expected.to be_invalid
       end
     end
-    
+
     context 'when author is nil' do
       it do
         book.author = nil

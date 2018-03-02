@@ -1,9 +1,4 @@
 class Book < ApplicationRecord
-    has_many :rents
-    validates :genre, presence: true 
-    validates :author, presence: true 
-    validates :image, presence: true 
-    validates :title, presence: true 
-    validates :publisher, presence: true 
-    validates :year, presence: true 
+  has_many :rents
+  validates :genre, :author, :image, :title, :publisher, :year, presence: true
 end

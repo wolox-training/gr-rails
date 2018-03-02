@@ -5,11 +5,11 @@ describe Rent do
   subject(:rent) do
     build(:rent)
   end
-  
+
   it do
     is_expected.to be_valid
   end
-  
+
   describe '#create' do
     context 'when from is nil' do
       it do
@@ -17,7 +17,7 @@ describe Rent do
         is_expected.to be_invalid
       end
     end
-   
+
     context 'when to is nil' do
       it do
         rent.to = nil
