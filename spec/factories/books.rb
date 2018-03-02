@@ -7,4 +7,5 @@ FactoryBot.define do
     title     Faker::Book.title
     publisher Faker::Book.publisher
     year      Faker::Number.between(1900, 2018)
-  end end
+  end
+end

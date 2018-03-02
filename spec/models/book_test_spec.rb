@@ -1,7 +1,6 @@
 require 'database_cleaner'
 require 'faker'
 describe Book do
-
   subject(:book) do
     build(:book)
   end
