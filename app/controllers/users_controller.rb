@@ -9,5 +9,4 @@ class UsersController < ApplicationController
       render json: {}, status: 401
     end
   end
-
 end
