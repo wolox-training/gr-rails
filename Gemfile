@@ -37,6 +37,10 @@ gem 'active_model_serializers', '~> 0.10.0'
 #Wor::Paginate is a gem for Rails that simplifies pagination
 gem 'wor-paginate'
 
+#Simple, secure token based authentication for Rails.
+gem 'devise_token_auth'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
