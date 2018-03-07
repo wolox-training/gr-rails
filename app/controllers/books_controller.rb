@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   def index
     if user_signed_in?
       @books = Book.all
-      render_paginated @books
+      render_paginated @books, each_serializer: BookSerializer
     else 
         render json: {}, status:  401
     end

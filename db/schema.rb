@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228135534) do
+ActiveRecord::Schema.define(version: 20180307162222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,23 @@ ActiveRecord::Schema.define(version: 20180228135534) do
   create_table "books", force: :cascade do |t|
     t.string "genre", null: false
     t.string "author", null: false
-    t.string "image", null: false
+    t.string "description", null: false
     t.string "title", null: false
     t.string "publisher", null: false
     t.string "year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.date "from"
+    t.date "to"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_rents_on_book_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,21 +49,22 @@ ActiveRecord::Schema.define(version: 20180228135534) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "last_name"
-    t.string "string"
     t.string "first_name"
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string "name"
     t.string "nickname"
     t.string "image"
     t.json "tokens"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.datetime "created_at", default: "2018-02-28 15:31:20", null: false
+    t.datetime "updated_at", default: "2018-02-28 15:31:20", null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "rents", "books"
+  add_foreign_key "rents", "users"
 end
