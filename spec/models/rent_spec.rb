@@ -1,4 +1,3 @@
-require 'faker'
 describe Rent do
   include FactoryBot::Syntax::Methods
   subject(:rent) do
