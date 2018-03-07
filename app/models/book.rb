@@ -1,3 +1,3 @@
-class Book < ActiveRecord::Base
-    serialize :params
+class Book < ApplicationRecord
+  serialize :params
 end
