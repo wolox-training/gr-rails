@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/wolox-training/gr-rails.svg?branch=kickoff-api)](https://travis-ci.org/wolox-training/gr-rails)
 # README
 
 This README would normally document whatever steps are necessary to get the

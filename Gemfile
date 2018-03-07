@@ -30,7 +30,8 @@ gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.52.1'
 
-# factory_bot is a fixtures replacement with a straightforward definition syntax
+#Simple, secure token based authentication for Rails.
+gem 'devise_token_auth'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
