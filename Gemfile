@@ -31,7 +31,7 @@ gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 gem 'rubocop', '~> 0.52.1'
 
 #ActiveModelSerializers brings convention over configuration to your JSON generation.
-gem 'active_model_serializers', '~> 0.10.0'
+gem 'active_model_serializers', '~> 0.10.0', require: true
 
 #Wor::Paginate is a gem for Rails that simplifies pagination
 gem 'wor-paginate'
