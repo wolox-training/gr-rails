@@ -97,7 +97,4 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
-  RSpec.shared_context 'Authenticated User' do
-    mock_sign_in(user)
-  end
 end
