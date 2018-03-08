@@ -7,9 +7,11 @@ end
 describe BooksController, type: :controller do
   context 'when user is logged in' do
     let!(:user) { create(:user) }
+    before do
+        mock_sign_in(User.last)
+    end
     context 'getting all the books' do
       before do
-        mock_sign_in(User.last)
         get :index
       end
       let!(:books) { create_list(:book, 3) }
@@ -27,7 +29,6 @@ describe BooksController, type: :controller do
     context 'getting a book' do
       let!(:book) { create(:book) }
       before do
-        mock_sign_in(User.last)
         get :show, params: { id: book.id }
       end
       it 'responds with the book json' do
