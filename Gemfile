@@ -30,8 +30,15 @@ gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem 'rubocop', '~> 0.52.1'
 
+#ActiveModelSerializers brings convention over configuration to your JSON generation.
+gem 'active_model_serializers', '~> 0.10.0'
+
+#Wor::Paginate is a gem for Rails that simplifies pagination
+gem 'wor-paginate'
+
 #Simple, secure token based authentication for Rails.
 gem 'devise_token_auth'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
