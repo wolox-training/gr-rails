@@ -43,11 +43,20 @@ describe BooksController, type: :controller do
   end
   context 'when user is not logged in' do
     context 'getting all the books' do
+      let!(:book) { create(:book) }
+      before do
+        get :show, params: { id: book.id }
+      end
       it 'responds with 401' do
+        expect(response).to have_http_status(:unauthorized)
       end
     end
     context 'getting a single book' do
+      before do
+        get :index
+      end
       it 'responds with 401' do
+        expect(response).to have_http_status(:unauthorized)
       end
     end
   end
