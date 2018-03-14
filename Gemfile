@@ -14,6 +14,9 @@ gem 'puma', '~> 3.7'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+#Active Admin is a Ruby on Rails framework for creating elegant backends for website administration.
+gem 'activeadmin'
+
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
