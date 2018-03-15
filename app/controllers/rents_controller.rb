@@ -16,12 +16,12 @@ class RentsController < ApplicationController
 
   def show
     @rent = Rent.find(params[:id])
-    authorize @rent
+    authorize @rent, :create?
     render json: @rent, serializer: RentSerializer
   end
 
   def destroy
-    authorize Rent.find(params[:user_id])
+    authorize Rent.find(params[:user_id]), :create?
     Rent.find(params[:user_id]).destroy
   end
 
