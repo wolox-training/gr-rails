@@ -3,8 +3,8 @@ class RentsController < ApplicationController
 
   def create
     if user_signed_in?
-      Rent.create(user_id: params[:user_id], book_id: params[:book_id],
-                  from: params[:from], to: params[:to], returned_at: params[:returned_at])
+      Rent.create(rent_creation_params)
+      MailerWorker.perform_async(Rent.last.id)
     else
       render json: {}, status: 401
     end
@@ -34,5 +34,9 @@ class RentsController < ApplicationController
     else
       render json: {}, status: 401
     end
+  end
+
+  def rent_creation_params
+    params.permit(:user_id, :book_id, :from, :to, :returned_at)
   end
 end

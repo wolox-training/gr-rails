@@ -30,4 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello:    "Hello world"
+  book:     "Book"
+  from:     "From"
+  to:       "To"
+  rent_msg: "Hi, you just rented this book:"
+es:
+  book:     "Libro"
+  from:     "Desde"
+  to:       "Hasta"
+  rent_msg: "Hola, acabaste de alquilar este libro:"
