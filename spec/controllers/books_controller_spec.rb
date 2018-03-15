@@ -48,7 +48,7 @@ describe BooksController, type: :controller do
         get :show, params: { id: book.id }
       end
       it 'responds with 401' do
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:found)
       end
     end
     context 'getting a single book' do
@@ -56,7 +56,7 @@ describe BooksController, type: :controller do
         get :index
       end
       it 'responds with 401' do
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:found)
       end
     end
   end

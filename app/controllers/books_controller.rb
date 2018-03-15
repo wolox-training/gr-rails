@@ -1,30 +1,18 @@
 class BooksController < ApplicationController
   include Wor::Paginate
-
+  before_action :authenticate_user!
   def index
-    if user_signed_in?
-      @books = Book.all
-      render_paginated @books, each_serializer: CompleteBookSerializer
-    else
-      render json: {}, status: 401
-    end
+    @books = Book.all
+    render_paginated @books, each_serializer: CompleteBookSerializer
   end
 
   def show
-    if user_signed_in?
-      @books = Book.find(params[:id])
-      render json: @books, serializer: SingleBookSerializer
-    else
-      render json: {}, status: 401
-    end
+    @books = Book.find(params[:id])
+    render json: @books, serializer: SingleBookSerializer
   end
 
   def rents
-    if user_signed_in?
-      @rents = Book.find(params[:id]).rents
-      render_paginated @rents, each_serializer: RentSerializer
-    else
-      render json: {}, status: 401
-    end
+    @rents = Book.find(params[:id]).rents
+    render_paginated @rents, each_serializer: RentSerializer
   end
 end

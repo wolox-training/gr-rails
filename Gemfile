@@ -22,6 +22,9 @@ gem 'activeadmin'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
+# Pundit provides a robust and scaleable authorization system.
+gem "pundit"
+
 #Simple, efficient background processing for Ruby.
 gem 'sidekiq'
 

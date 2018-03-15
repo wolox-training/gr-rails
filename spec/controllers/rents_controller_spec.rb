@@ -27,9 +27,9 @@ describe RentsController, type: :controller do
     end
 
     context 'getting a rent' do
-      let!(:rent) { create(:rent) }
+      let!(:rent) { create(:rent, user: user) }
       before do
-        get :show, params: { id: rent.id, user_id: User.last.id }
+        get :show, params: { id: rent.id, user_id: user.id }
       end
       it 'responds with the rent json' do
         expected = RentSerializer.new(rent, root: false).to_json
@@ -46,18 +46,18 @@ describe RentsController, type: :controller do
     context 'getting all the books' do
       let!(:rent) { create(:rent) }
       before do
-        get :show, params: { id: rent.id, user_id: User.last.id }
+        get :show, params: { id: rent.id, user_id: user.id }
       end
-      it 'responds with 401' do
-        expect(response).to have_http_status(:unauthorized)
+      it 'responds with 302' do
+        expect(response).to have_http_status(:found)
       end
     end
     context 'getting a single book' do
       before do
-        get :index, params: { user_id: User.last.id }
+        get :index, params: { user_id: user.id }
       end
       it 'responds with 401' do
-        expect(response).to have_http_status(:unauthorized)
+        expect(response).to have_http_status(:found)
       end
     end
   end
