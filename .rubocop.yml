@@ -2,3 +2,10 @@ Documentation:
   Enabled: false
 LineLength:
   Max: 99
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - spec/factories/*
