@@ -29,7 +29,7 @@ class RentsController < ApplicationController
 
   def destroy
     if user_signed_in?
-      Rent.find(params[:user_id]).destroy 
+      Rent.find(params[:user_id]).destroy
     else
       render json: {}, status: 401
     end
