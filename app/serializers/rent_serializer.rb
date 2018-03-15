@@ -1,3 +1,5 @@
 class RentSerializer < ActiveModel::Serializer
-  attributes :user_id, :book_id, :from, :to
+  has_one :book, serializer: CompleteBookSerializer
+  has_one :user, serializer: UserSerializer
+  attributes :id, :from, :to, :returned_at
 end

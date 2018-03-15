@@ -14,8 +14,16 @@ gem 'puma', '~> 3.7'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+#Active Admin is a Ruby on Rails framework for creating elegant backends for website administration.
+gem 'activeadmin'
+
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
+
+#Simple, efficient background processing for Ruby.
+gem 'sidekiq'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
