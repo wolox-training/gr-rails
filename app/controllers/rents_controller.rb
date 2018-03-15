@@ -1,5 +1,6 @@
 class RentsController < ApplicationController
   include Wor::Paginate
+
   def create
     if user_signed_in?
       Rent.create(rent_creation_params)

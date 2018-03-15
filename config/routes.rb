@@ -2,11 +2,10 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'books/index'
-  get 'books/:id', to: 'books#show'
 
   devise_for :users
-  resources :books
+  resources :books, only: [:index, :show]
+  get 'books/:id/rents', to: 'books#rents'
 
   resources :users do
     resources :rents, only: [:index, :create, :show, :destroy]
