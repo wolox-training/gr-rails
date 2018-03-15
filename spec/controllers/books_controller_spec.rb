@@ -8,7 +8,7 @@ describe BooksController, type: :controller do
   context 'when user is logged in' do
     let!(:user) { create(:user) }
     before do
-        mock_sign_in(User.last)
+      mock_sign_in(User.last)
     end
     context 'getting all the books' do
       before do
@@ -17,7 +17,7 @@ describe BooksController, type: :controller do
       let!(:books) { create_list(:book, 3) }
       it 'responds with the books json' do
         expected = ActiveModel::Serializer::CollectionSerializer.new(
-          books, each_serializer: BookSerializer
+          books, serializer: CompleteBookSerializer
         ).to_json
         expect(response.body) =~ JSON.parse(expected)
       end
@@ -33,7 +33,7 @@ describe BooksController, type: :controller do
       end
       it 'responds with the book json' do
         book = create(:book)
-        expected = BookSerializer.new(book, root: false).to_json
+        expected = SingleBookSerializer.new(book, root: false).to_json
         expect(response.body) =~ JSON.parse(expected)
       end
       it 'responds ok' do
