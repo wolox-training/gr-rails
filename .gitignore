@@ -2,4 +2,5 @@ log/
 log/*
 test/
 tmp/pids/
+tmp/*
 .env
