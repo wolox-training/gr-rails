@@ -28,9 +28,6 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
-  
-
-
   config.omniauth :google_oauth2, 'GOOGLE_CLIENT_ID', 'GOOGLE_CLIENT_SECRET', {}
 
 
