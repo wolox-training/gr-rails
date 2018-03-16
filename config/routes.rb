@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :books, only: [:index, :show]
-  get 'books/:id/rents', to: 'books#rents'
+  get 'books/open_library/:isbn', to: 'books#open_library_book'
+  get 'books/:id/rents',          to: 'books#rents'
 
   resources :users do
     resources :rents, only: [:index, :create, :show, :destroy]
