@@ -1,7 +1,11 @@
 class BookSuggestionsController < ApplicationController
   def create
-    @book_suggestion = BookSuggestion.create(book_suggestion_creation_params)
-    render json: @book_suggestion, serializer: BookSuggestionSerializer, status: :created
+    book_suggestion = BookSuggestion.create(book_suggestion_creation_params)
+    if book_suggestion.persisted?
+      render json: book_suggestion, serializer: BookSuggestionSerializer, status: :created
+    else
+      render json: book_suggestion.errors.messages, status: :unprocessable_entity
+    end
   end
 
   def book_suggestion_creation_params
