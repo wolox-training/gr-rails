@@ -22,6 +22,9 @@ gem 'activeadmin'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
 
+#Google login
+gem 'omniauth-google-oauth2'
+
 # Pundit provides a robust and scaleable authorization system.
 gem "pundit"
 
