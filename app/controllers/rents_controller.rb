@@ -1,39 +1,28 @@
 class RentsController < ApplicationController
   include Wor::Paginate
+  before_action :authenticate_user!
 
   def create
-    if user_signed_in?
-      Rent.create(rent_creation_params)
-      MailerWorker.perform_async(Rent.last.id)
-    else
-      render json: {}, status: 401
-    end
+    rent = Rent.create(rent_creation_params)
+    authorize rent
+    MailerWorker.perform_async(Rent.last.id)
   end
 
   def index
-    if user_signed_in?
-      @rents = User.first.rents
-      render_paginated @rents, each_serializer: RentSerializer
-    else
-      render json: {}, status: 401
-    end
+    @rents = User.first.rents
+    authorize @rents
+    render_paginated @rents, each_serializer: RentSerializer
   end
 
   def show
-    if user_signed_in?
-      @rents = Rent.find(params[:id])
-      render json: @rents, serializer: RentSerializer
-    else
-      render json: {}, status: 401
-    end
+    @rent = Rent.find(params[:id])
+    authorize @rent, :create?
+    render json: @rent, serializer: RentSerializer
   end
 
   def destroy
-    if user_signed_in?
-      Rent.find(params[:user_id]).destroy
-    else
-      render json: {}, status: 401
-    end
+    authorize Rent.find(params[:user_id]), :create?
+    Rent.find(params[:user_id]).destroy
   end
 
   def rent_creation_params
