@@ -3,7 +3,6 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   def index
     books = Book.all
-    OpenLibraryService.new(isbn: '0385472579').book_info
     render_paginated books, each_serializer: CompleteBookSerializer
   end
 
@@ -18,6 +17,7 @@ class BooksController < ApplicationController
 
   def open_library_book
     book_info = OpenLibraryService.new(isbn: params[:isbn]).book_info
+    return render json: {}, status: 400 if book_info.nil?
     render json: book_info
   end
 

@@ -2,17 +2,18 @@ require 'httparty'
 
 class OpenLibraryService
   include HTTParty
-
+  base_uri 'https://openlibrary.org'
   def initialize(params)
     @isbn = params[:isbn]
   end
 
   def book_info
-    info = HTTParty.get('https://openlibrary.org/api/books?bibkeys=ISBN:' + @isbn +
-                        '&format=json&jscmd=data')
-    info = info['ISBN:' + @isbn]
-    book = info.slice(:title, :subtitle, :number_of_pages, :authors)
-    book[:isbn] = @isbn
-    book
+    response = OpenLibraryService.get('/api/books', query: { bibkeys: 'ISBN:' + @isbn,
+                                                             format: 'json', jscmd: 'data' })
+    if response.nil?
+      response
+    else
+      response['ISBN:' + @isbn].slice('title', 'subtitle', 'number_of_pages', 'authors')
+    end
   end
 end
