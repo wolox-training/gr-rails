@@ -9,7 +9,7 @@ describe BookSuggestionsController, type: :controller do
                                 link: book_suggestion.link }
       end
       it 'creates the book suggestion' do
-        expect(BookSuggestion.last) != book_suggestion
+        expect(BookSuggestion.last).not_to eq(book_suggestion)
       end
 
       it 'responds with 201 status' do
@@ -23,7 +23,7 @@ describe BookSuggestionsController, type: :controller do
         post :create, params: { author: book_suggestion.author, title: book_suggestion.title }
       end
       it 'doesn\'t create a new rent' do
-        expect(BookSuggestion.last) == book_suggestion
+        expect(BookSuggestion.last).to eq(book_suggestion)
       end
 
       it 'returns error messages' do
