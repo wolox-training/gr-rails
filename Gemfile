@@ -25,8 +25,11 @@ gem 'devise'
 # Pundit provides a robust and scaleable authorization system.
 gem "pundit"
 
-#Simple, efficient background processing for Ruby.
+# Simple, efficient background processing for Ruby.
 gem 'sidekiq'
+
+# HTTParty, for http requests
+gem 'httparty'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
