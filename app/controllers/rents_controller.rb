@@ -17,7 +17,7 @@ class RentsController < ApplicationController
   def show
     @rent = Rent.find(params[:id])
     authorize @rent, :create?
-    render json: @rent, serializer: RentSerializer
+    render json: @rent
   end
 
   def destroy

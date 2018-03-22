@@ -27,6 +27,11 @@ require 'rspec/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+def mock_sign_in(user)
+  allow_any_instance_of(described_class).to receive(:authenticate_user!)
+  allow_any_instance_of(described_class).to receive(:current_user).and_return(user)
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
